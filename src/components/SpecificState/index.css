@@ -1,0 +1,51 @@
+.state-name {
+  height: 45px;
+  min-width: 200px;
+  border-radius: 40px;
+  background-color: rgba(2, 132, 199, 0.16);
+  color: #0ea5e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  padding: 10px;
+}
+.specific-state-container {
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-top: 20px;
+}
+.state-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #94a3b8;
+}
+.tested-card {
+  text-align: end;
+}
+.district-cases {
+  display: flex;
+  padding: 0px;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.confirmed {
+  color: #ff073a;
+}
+
+.active {
+  color: #007bff;
+}
+
+.recovered {
+  color: #28a745;
+}
+
+.deceased {
+  color: #6c757d;
+}
+.district-name {
+  font-size: 25px;
+}

@@ -1,0 +1,39 @@
+.icon {
+  display: flex;
+  background-color: #024023;
+  color: #facc15;
+  width: 75px;
+  height: 35px;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px;
+}
+.search-bar {
+  color: #64748b;
+  padding: 10px;
+  display: flex;
+  width: 80vw;
+  height: 45px;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+  border-bottom: 1px solid #64748b;
+}
+.link-bar {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 798px) {
+  .icon {
+    width: 80px;
+    height: 35px;
+  }
+  .search-bar {
+    width: 450px;
+    height: 45px;
+  }
+}

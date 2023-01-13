@@ -1,0 +1,39 @@
+.stats-container {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.stat-card {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.confirmed-card {
+  color: #ff073a;
+}
+.active-card {
+  color: #007bff;
+}
+
+.recovered-card {
+  color: #28a745;
+}
+.deceased-card {
+  color: #6c757d;
+}
+
+.pic-size {
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .stats-container {
+    width: 800px;
+  }
+}

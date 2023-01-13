@@ -1,0 +1,16 @@
+.faq-card {
+  list-style-type: none;
+  padding: 0px;
+}
+.question-style {
+  color: #94a3b8;
+}
+.answer-style {
+  color: #007bff;
+}
+.about-container {
+  color: #f8fafc;
+  background-color: #161625;
+  min-height: 100vh;
+  padding: 20px;
+}

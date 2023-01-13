@@ -1,0 +1,24 @@
+.not-found-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #161625;
+  color: #ffffff;
+}
+.home-btn {
+  background-color: #2563eb;
+  width: 88px;
+  height: 48px;
+  border-radius: 12px;
+  color: #ffffff;
+  border-style: none;
+  cursor: pointer;
+  margin: 20px;
+}
+.not-found-img {
+  width: 400px;
+  height: 300px;
+}

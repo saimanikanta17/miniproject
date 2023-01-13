@@ -1,0 +1,61 @@
+.state-cases {
+  display: flex;
+  list-style-type: none;
+  color: #f1f5f9;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.list-style-none {
+  list-style-type: none;
+}
+.state-cases-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f8fafc;
+  font-weight: 700;
+  border-bottom: 1px solid #475569;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 16px;
+  list-style-type: none;
+}
+.stats-details {
+  padding: 0px;
+}
+.state-wise-cases {
+  width: 1000px;
+  border: 1px solid #475569;
+  font-family: 'Roboto';
+  border-radius: 12px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+.states-card {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+.count-card {
+  width: 80px;
+  text-align: right;
+}
+.confirmed-text {
+  color: #ff073a;
+}
+.active-text {
+  color: #007bff;
+}
+.recovered-text {
+  color: #28a745;
+}
+.deceased-text {
+  color: #6c757d;
+}
+.population-text {
+  color: #94a3b8;
+}
