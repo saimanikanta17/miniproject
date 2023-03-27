@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import {Redirect} from 'react-router-dom'
+
 import {LineChart, XAxis, YAxis, Tooltip, Legend, Line} from 'recharts'
 
 import Loader from 'react-loader-spinner'
@@ -37,7 +39,6 @@ class SpecificState extends Component {
 
   componentDidMount() {
     this.getStateDetails()
-    this.getTimelineData()
   }
 
   getFormattedData = (eachDistrict, districts) => {
@@ -106,34 +107,50 @@ class SpecificState extends Component {
     const response = await fetch(apiUrl)
     const fetchedData = await response.json()
 
-    const {districts} = fetchedData[stateCode]
-    const districtsNames = Object.keys(districts)
-    const districtsDetails = districtsNames.map(eachDistrict =>
-      this.getFormattedData(eachDistrict, districts),
-    )
-    districtsDetails.sort((a, b) => b[caseType] - a[caseType])
+    const codes = Object.keys(fetchedData)
+    if (codes.includes(stateCode)) {
+      const stateKeys = Object.keys(fetchedData[stateCode])
+      if (stateKeys.includes('districts')) {
+        const {districts} = fetchedData[stateCode]
+        const districtsNames = Object.keys(districts)
+        const districtsDetails = districtsNames.map(eachDistrict =>
+          this.getFormattedData(eachDistrict, districts),
+        )
+        districtsDetails.sort((a, b) => b[caseType] - a[caseType])
 
-    const lastUpdated = fetchedData[stateCode].meta.last_updated
+        const lastUpdated = fetchedData[stateCode].meta.last_updated
 
-    const stateName = statesList.find(state => state.state_code === stateCode)
-      .state_name
-    const stateStats = fetchedData[stateCode].total
-    const {confirmed, deceased, recovered, tested} = stateStats
-    const stateDetails = {
-      stateCode,
-      stateName,
-      confirmed,
-      deceased,
-      recovered,
-      active: confirmed - (recovered + deceased),
-      tested,
-      lastUpdated,
+        const stateName = statesList.find(
+          state => state.state_code === stateCode,
+        ).state_name
+        const stateStats = fetchedData[stateCode].total
+        const {confirmed, deceased, recovered, tested} = stateStats
+        const stateDetails = {
+          stateCode,
+          stateName,
+          confirmed,
+          deceased,
+          recovered,
+          active: confirmed - (recovered + deceased),
+          tested,
+          lastUpdated,
+        }
+        this.setState({
+          stateDetails,
+          districtsDetails,
+          apiStatus: apiStatusConstants.success,
+        })
+        this.getTimelineData()
+      } else {
+        this.setState({
+          apiStatus: apiStatusConstants.failure,
+        })
+      }
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+      })
     }
-    this.setState({
-      stateDetails,
-      districtsDetails,
-      apiStatus: apiStatusConstants.success,
-    })
   }
 
   getTimelineData = async () => {
@@ -277,6 +294,8 @@ class SpecificState extends Component {
         return this.renderLoader()
       case apiStatusConstants.success:
         return this.renderStateDetailsView()
+      case apiStatusConstants.failure:
+        return <Redirect to="/bad-path" />
       default:
         return null
     }
