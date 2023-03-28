@@ -56,7 +56,11 @@ class Home extends Component {
     const apiUrl = 'https://apis.ccbp.in/covid19-state-wise-data'
     const response = await fetch(apiUrl)
     const fetchedData = await response.json()
-    const stateWiseData = statesList.map(state =>
+    const codes = Object.keys(fetchedData)
+    const filteredStatesList = statesList.filter(each =>
+      codes.includes(each.state_code),
+    )
+    const stateWiseData = filteredStatesList.map(state =>
       this.getFormattedData(state, fetchedData),
     )
 
@@ -99,8 +103,6 @@ class Home extends Component {
     const searchResults = statesList.filter(eachSearch =>
       eachSearch.state_name.toLowerCase().includes(searchState.toLowerCase()),
     )
-
-    // searchResultsUnorderedList
 
     return (
       <div className="home-card">
