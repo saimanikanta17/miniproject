@@ -11,30 +11,30 @@ const Header = () => (
         </h1>
       </Link>
       <ul className="nav-links-container">
-        <li>
-          <Link to="/" className="link-style">
+        <Link to="/" className="link-style">
+          <li>
             <button type="button">Home</button>
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className="link-style">
+          </li>
+        </Link>
+        <Link to="/about" className="link-style">
+          <li>
             <button type="button">About</button>
-          </Link>
-        </li>
+          </li>
+        </Link>
       </ul>
     </div>
     <div>
       <ul className="nav-links-sm-container">
-        <li>
-          <Link to="/" className="link-style">
+        <Link to="/" className="link-style">
+          <li>
             <button type="button">Home</button>
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" className="link-style">
+          </li>
+        </Link>
+        <Link to="/about" className="link-style">
+          <li>
             <button type="button">About</button>
-          </Link>
-        </li>
+          </li>
+        </Link>
       </ul>
     </div>
   </nav>

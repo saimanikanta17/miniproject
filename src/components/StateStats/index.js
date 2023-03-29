@@ -10,8 +10,8 @@ const State = props => {
     deceasedCases,
     recoveredCases,
     population,
+    activeCases,
   } = stateDate
-  const activeCases = confirmedCases - (recoveredCases + deceasedCases)
   return (
     <li className="list-style-none state-cases">
       <p className="states-card">{stateName}</p>

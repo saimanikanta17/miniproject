@@ -38,13 +38,26 @@ class Home extends Component {
 
   getFormattedData = (element, data) => {
     const code = element.state_code
+    const confirmedCases = data[code].total.confirmed
+      ? data[code].total.confirmed
+      : 0
+    const deceasedCases = data[code].total.deceased
+      ? data[code].total.deceased
+      : 0
+    const recoveredCases = data[code].total.recovered
+      ? data[code].total.recovered
+      : 0
+    const population = data[code].meta.population
+      ? data[code].meta.population
+      : 0
     return {
       stateCode: code,
       stateName: element.state_name,
-      confirmedCases: data[code].total.confirmed,
-      deceasedCases: data[code].total.deceased,
-      recoveredCases: data[code].total.recovered,
-      population: data[code].meta.population,
+      confirmedCases,
+      deceasedCases,
+      recoveredCases,
+      population,
+      activeCases: confirmedCases - (recoveredCases + deceasedCases),
     }
   }
 
