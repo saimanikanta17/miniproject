@@ -13,10 +13,6 @@
 }
 
 .nav-links-container {
-  display: none;
-}
-
-.nav-links-sm-container {
   width: 150px;
   list-style: none;
   color: #f8fafc;
@@ -42,10 +38,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .nav-links-sm-container {
-    display: none;
-  }
-
   .span-logo {
     color: #3b82f6;
   }
